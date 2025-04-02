@@ -226,8 +226,8 @@ Transform:
   m_GameObject: {fileID: 218999735}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.242, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.99, z: 0}
+  m_LocalScale: {x: 1, y: 1.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 313145148}
@@ -295,6 +295,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8268907edd161a74ea80218860d3cc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSpeed: 3
+  sprintSpeed: 6
+  crouchSpeed: 1.5
+  gravity: -9.81
+  jumpHeight: 2
+  crouchHeight: 0.5
+  standingHeight: 2
+  crouchDuration: 0.25
 --- !u!143 &218999742
 CharacterController:
   m_ObjectHideFlags: 0
@@ -713,7 +721,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.93923265, y: 0.44335908, z: -1.9787761}
+  m_LocalPosition: {x: 0.93923265, y: 2.1061103, z: -1.9787761}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1023,7 +1031,7 @@ Transform:
   m_GameObject: {fileID: 1610819414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.93923265, y: 0.44335908, z: -1.9787761}
+  m_LocalPosition: {x: 0.93923265, y: 2.1061103, z: -1.9787761}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
