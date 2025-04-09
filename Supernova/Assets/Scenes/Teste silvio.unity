@@ -223,10 +223,10 @@ MonoBehaviour:
   player: {fileID: 218999739}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   whatisplayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   health: 120
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 218999740}
   - component: {fileID: 218999741}
   - component: {fileID: 218999742}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Jogador
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -589,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 313145148}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LookAt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 806482341}
   - component: {fileID: 806482340}
   - component: {fileID: 806482339}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 1042533432}
   - component: {fileID: 1042533431}
   - component: {fileID: 1042533430}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frente
   m_TagString: Untagged
   m_Icon: {fileID: 0}
