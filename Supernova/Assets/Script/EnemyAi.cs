@@ -27,6 +27,11 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    public LayerMask sightBlockers;
+
+    public Transform[] wayPoints;
+    private int currentWayPoint = -1;
+
     private void Awake()
     {
         player = GameObject.Find("Jogador").transform;
@@ -56,24 +61,32 @@ public class EnemyAi : MonoBehaviour
         //alcançou walkpoint
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
-
-
-
     }
+
     private void SearchWalkPoint()
     {
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        //float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        //float randomX = Random.Range(-walkPointRange, walkPointRange);
+
+        //currentWayPoint = Random.Range(0, wayPoints.Length);
+
+        currentWayPoint++;
+        if (currentWayPoint > wayPoints.Length - 1) currentWayPoint = 0;
+
+        float randomZ = wayPoints[currentWayPoint].position.z;
+        float randomX = wayPoints[currentWayPoint].position.x;
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);   
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-            walkPointSet=true;
+            walkPointSet = true;
     }
+
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
     }
+
     private void AttackPlayer() 
     {
         agent.SetDestination(transform.position);
@@ -81,7 +94,7 @@ public class EnemyAi : MonoBehaviour
         transform.LookAt(player);
 
         if(!alreadyAttacked)
-            {
+        {
             //codigo do ataque aqui
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
@@ -110,9 +123,9 @@ public class EnemyAi : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-     Gizmos.color = Color.red;
-     Gizmos.DrawWireSphere(transform.position, attackRange);
-     Gizmos.color = Color.yellow;
-     Gizmos.DrawWireSphere(transform.position, sightRange);
+         Gizmos.color = Color.red;
+         Gizmos.DrawWireSphere(transform.position, attackRange);
+         Gizmos.color = Color.yellow;
+         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }
