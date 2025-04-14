@@ -4,6 +4,7 @@ public class PlayerProjectile : MonoBehaviour
 {
     public float lifetime = 5f;
     public int damage = 1;
+    public string targetTag = "Enemy";
 
     void Start()
     {
