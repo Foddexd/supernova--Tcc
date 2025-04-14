@@ -2,20 +2,25 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    public float lifeTime = 5f;
-    public int damage = 1;
-
-    void Start()
-    {
-        Destroy(gameObject, lifeTime);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Colidiu com: " + other.name);
+
         if (other.CompareTag("Player"))
         {
-            // Supondo que o jogador tenha um script com TakeDamage
-            other.GetComponent<PlayerHealth>()?.TakeDamage(damage);
+            PlayerHealth vida = other.GetComponent<PlayerHealth>();
+
+            if (vida != null)
+            {
+                Debug.Log("Acertou o jogador! Aplicando dano.");
+                vida.TakeDamage(1);
+            }
+
+            Destroy(gameObject);
+        }
+        else
+        {
+            // Mesmo que não seja o jogador, destrói o projetil (opcional)
             Destroy(gameObject);
         }
     }
