@@ -32,6 +32,8 @@ public class EnemyAi : MonoBehaviour
     public Transform[] wayPoints;
     private int currentWayPoint = -1;
 
+    public Transform firePoint;
+
     private void Awake()
     {
         player = GameObject.Find("Jogador").transform;
@@ -96,9 +98,11 @@ public class EnemyAi : MonoBehaviour
         if(!alreadyAttacked)
         {
             //codigo do ataque aqui
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            GameObject proj = Instantiate(projectile, firePoint.position, firePoint.rotation);
+            Rigidbody rb = proj.GetComponent<Rigidbody>();
+            Vector3 direction = (player.position - firePoint.position).normalized;
+
+            rb.velocity = direction * 20f;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
