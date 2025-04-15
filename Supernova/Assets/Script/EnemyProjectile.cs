@@ -13,7 +13,7 @@ public class EnemyProjectile : MonoBehaviour
             if (vida != null)
             {
                 Debug.Log("Acertou o jogador! Aplicando dano.");
-                vida.TakeDamage(1);
+                vida.TakeDamage(10);
             }
 
             Destroy(gameObject);

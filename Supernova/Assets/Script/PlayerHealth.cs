@@ -4,10 +4,11 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 3;
     public int currentHealth;
+    public GameObject player;
 
     [Header("Objetos ativados com dano")]
-    public GameObject objetoCom2DeVida;
-    public GameObject objetoCom1DeVida;
+    public GameObject objetoCom60DeVida;
+    public GameObject objetoCom30DeVida;
 
     private void Start()
     {
@@ -30,16 +31,16 @@ public class PlayerHealth : MonoBehaviour
 
     void AtualizarIndicadoresDeVida()
     {
-        if (objetoCom2DeVida != null)
-            objetoCom2DeVida.SetActive(currentHealth == 2);
+        if (objetoCom60DeVida != null)
+            objetoCom60DeVida.SetActive(currentHealth <= 60 && currentHealth > 30 );
 
-        if (objetoCom1DeVida != null)
-            objetoCom1DeVida.SetActive(currentHealth == 1);
+        if (objetoCom30DeVida != null)
+            objetoCom30DeVida.SetActive(currentHealth <= 30);
     }
 
     void Die()
     {
         Debug.Log("O jogador morreu!");
-        // gameObject.SetActive(false);
+        Destroy(player.gameObject);
     }
 }
