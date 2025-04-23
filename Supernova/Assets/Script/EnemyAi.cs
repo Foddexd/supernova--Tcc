@@ -44,6 +44,8 @@ public class EnemyAi : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         bool inAttackRange = distanceToPlayer <= attackDistance;
 
+        Debug.Log("can see player: " + canSeePlayer + ", in attack range: " + inAttackRange);
+
         if (!canSeePlayer)
             Patroling();
         else if (canSeePlayer && !inAttackRange)
@@ -54,6 +56,8 @@ public class EnemyAi : MonoBehaviour
 
     private void Patroling()
     {
+        agent.isStopped = false;
+
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -79,13 +83,16 @@ public class EnemyAi : MonoBehaviour
 
     private void ChasePlayer()
     {
+        agent.isStopped = false;
+
         if (player != null)
             agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
-        agent.SetDestination(transform.position);
+        agent.isStopped = true;
+        //agent.SetDestination(transform.position);
         transform.LookAt(player);
 
         if (!alreadyAttacked)

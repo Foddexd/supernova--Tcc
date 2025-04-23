@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8644863679610187469}
   - component: {fileID: 8987880033000494615}
   - component: {fileID: 1753360350412905267}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjetilArma Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

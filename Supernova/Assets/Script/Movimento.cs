@@ -28,6 +28,7 @@ public class Movimento : MonoBehaviour
     private float targetHeight;
     private float currentHeight;
 
+    public Joystick joystick;
     
     private void Awake()
     {

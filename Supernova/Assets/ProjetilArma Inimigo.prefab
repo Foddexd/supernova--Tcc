@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 275418501701031073}
   - component: {fileID: 5128468817266152257}
   - component: {fileID: 4525600937027711415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjetilArma Inimigo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
