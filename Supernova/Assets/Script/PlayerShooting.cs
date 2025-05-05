@@ -15,7 +15,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // mira central
         if (Physics.Raycast(ray, out RaycastHit hit))
