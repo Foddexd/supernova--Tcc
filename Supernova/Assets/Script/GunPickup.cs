@@ -6,8 +6,14 @@ public class GunPickup : MonoBehaviour
     public PlayerShooting shootingScript;
     public GameObject ArmaInventario;
     public GameObject ArmaChão;
+    public GameObject botaoCanvas; // <-- Referência ao botão do Canvas
 
     private bool playerInRange;
+
+    void Start()
+    {
+        botaoCanvas.SetActive(false); // Garante que comece desativado
+    }
 
     void Update()
     {
@@ -17,7 +23,6 @@ public class GunPickup : MonoBehaviour
         }
     }
 
-    // Este é o método que o botão chama diretamente
     public void PegarArma()
     {
         if (playerInRange)
@@ -26,13 +31,13 @@ public class GunPickup : MonoBehaviour
         }
     }
 
-    // Essa é a lógica comum que ambos chamam
     private void ColetarArma()
     {
         shootingScript.temArma = true;
-        gunVisual.SetActive(true); // Ativa a arma visual no jogador
+        gunVisual.SetActive(true);
         ArmaInventario.SetActive(true);
-        ArmaChão.SetActive(false); // Some com a arma do chão
+        ArmaChão.SetActive(false);
+        botaoCanvas.SetActive(false); // Esconde o botão após pegar a arma
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,6 +45,7 @@ public class GunPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            botaoCanvas.SetActive(true); // Mostra o botão quando se aproxima
         }
     }
 
@@ -48,6 +54,7 @@ public class GunPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            botaoCanvas.SetActive(false); // Esconde o botão ao sair
         }
     }
 }

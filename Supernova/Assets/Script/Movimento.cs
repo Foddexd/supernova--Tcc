@@ -28,8 +28,8 @@ public class Movimento : MonoBehaviour
     private float targetHeight;
     private float currentHeight;
 
-    public Joystick joystick;
-    
+    public FixedJoystick joystick;
+    public GameObject mobile;
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -40,11 +40,20 @@ public class Movimento : MonoBehaviour
    
     void Update()
     {
-        
-        inputX = Input.GetAxis("Horizontal");
-        inputY = Input.GetAxis("Vertical");
+        if (mobile.activeSelf)
+        {
+            inputX = joystick.Horizontal;
+            inputY = joystick.Vertical;
+        }
+        else
+        {
+            inputX = Input.GetAxis("Horizontal");
+            inputY = Input.GetAxis("Vertical");
+        }
+       // inputX = joystick.Horizontal;
+      //  inputY = joystick.Vertical;
 
-       
+
         isSprinting = Input.GetKey(KeyCode.LeftShift);
 
        
