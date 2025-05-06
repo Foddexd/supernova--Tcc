@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Teste dex.unity
     guid: 111638ebb1163034690f7666b36f2581
+  - enabled: 1
+    path: Assets/Scenes/Teste dex/Teste Leo 1 e 2.unity
+    guid: b4cf07a960c366941919e44f47de731e
   m_configObjects: {}
