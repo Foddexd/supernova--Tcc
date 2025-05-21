@@ -10800,7 +10800,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1993745224}
         m_TargetAssemblyTypeName: GunPickup, Assembly-CSharp
         m_MethodName: PegarArma
         m_Mode: 1
