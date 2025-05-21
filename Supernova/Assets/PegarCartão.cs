@@ -7,17 +7,25 @@ public class PegarCartão : MonoBehaviour
     public GameObject CabideComCartao;
     public GameObject CabideSemCartão;
     public GameObject CartãoInventario;
+    public GameObject Botao;
 
     public bool JogadorPerto = false;
 
     public static bool TemCartao=false;
-    
 
+    public void PegarCartao()
+    {
+        CabideComCartao.SetActive(false);
+        CabideSemCartão.SetActive(true);
+        CartãoInventario.SetActive(true);
+        TemCartao = true;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             JogadorPerto = true;
+            Botao.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -25,6 +33,7 @@ public class PegarCartão : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             JogadorPerto = false;
+            Botao.SetActive(false);
         }
     }
     // Update is called once per frame
@@ -32,10 +41,10 @@ public class PegarCartão : MonoBehaviour
     {
         if (JogadorPerto && Input.GetKeyDown(KeyCode.E))
         {
-            CabideComCartao.SetActive(false);
-            CabideSemCartão.SetActive(true);
-            CartãoInventario.SetActive(true);  
-            TemCartao = true;
+            PegarCartao();
+            Botao.SetActive(false);
+
         }
     }
+    
 }
