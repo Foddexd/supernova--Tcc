@@ -5,6 +5,11 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject menuPausa;
     private bool jogoPausado = false;
+    public GameObject MenuCreditos;
+    public GameObject MenuOpções;
+    public GameObject MenuControles;
+    public GameObject MenuPrincipal;
+
 
     void Update()
     {
@@ -17,6 +22,42 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    public void FecharCreditos()
+    {
+        Time.timeScale = 1f;
+        MenuOpções.SetActive(false);
+        MenuPrincipal.SetActive(true);
+    }
+    public void FecharOpções()
+    {
+        Time.timeScale = 1f;
+        MenuOpções.SetActive(false);
+        MenuPrincipal.SetActive(true);
+    }
+    public void FecharControles()
+    {
+        Time.timeScale = 1f;
+        MenuControles.SetActive(false);
+        MenuPrincipal.SetActive(true);
+    }
+    public void AbrirOpções()
+    {
+        Time.timeScale = 1f;
+        MenuPrincipal.SetActive(false);
+        MenuOpções.SetActive(true);
+    }
+    public void AbrirCreditos()
+    {
+        Time.timeScale = 1f;
+        MenuPrincipal.SetActive(false);
+        MenuCreditos.SetActive(true);
+    }
+    public void AbrirControles()
+    {
+        Time.timeScale = 1f;
+        MenuPrincipal.SetActive(false);
+        MenuControles.SetActive(true);
+    }
     public void PausarJogo()
     {
         menuPausa.SetActive(true);
