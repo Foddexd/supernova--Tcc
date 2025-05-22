@@ -2437,7 +2437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055d4be7d657f23438368e3b218e93b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaCena: Testesilvio
+  nomeDaCena: Teste silvio
 --- !u!114 &1528843672
 MonoBehaviour:
   m_ObjectHideFlags: 0
