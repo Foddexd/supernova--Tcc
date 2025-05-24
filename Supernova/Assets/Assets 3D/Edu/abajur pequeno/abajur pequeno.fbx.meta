@@ -3,7 +3,12 @@ guid: 6f359fee3608abd45b4e225202c851dc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: abajur_pequeno
+    second: {fileID: 2100000, guid: 3871daa254495434f931ae73a10c9a4a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
