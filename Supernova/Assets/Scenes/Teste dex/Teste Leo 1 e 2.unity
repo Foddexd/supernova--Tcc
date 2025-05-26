@@ -35551,12 +35551,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1168641686}
     - target: {fileID: 1655592596326333889, guid: 6623eebe431127f4c89d7c936aa2c7a1, type: 3}
+      propertyPath: rayCount
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655592596326333889, guid: 6623eebe431127f4c89d7c936aa2c7a1, type: 3}
       propertyPath: viewDistance
-      value: 25.8
+      value: 23.2
       objectReference: {fileID: 0}
     - target: {fileID: 1655592596326333889, guid: 6623eebe431127f4c89d7c936aa2c7a1, type: 3}
       propertyPath: attackDistance
-      value: 21.3
+      value: 19.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655592596326333889, guid: 6623eebe431127f4c89d7c936aa2c7a1, type: 3}
+      propertyPath: investigateRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1655592596326333889, guid: 6623eebe431127f4c89d7c936aa2c7a1, type: 3}
       propertyPath: wayPoints.Array.data[0]
