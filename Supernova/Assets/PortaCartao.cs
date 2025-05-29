@@ -5,7 +5,7 @@ using UnityEngine;
 public class PortaCartao : MonoBehaviour
 {
     public bool JogadorPerto;
-    
+
     public GameObject PortaFechada1;
     public GameObject PortaFechada2;
 

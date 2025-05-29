@@ -19,6 +19,7 @@ public class PegarCartão : MonoBehaviour
         CabideSemCartão.SetActive(true);
         CartãoInventario.SetActive(true);
         TemCartao = true;
+        Botao.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {

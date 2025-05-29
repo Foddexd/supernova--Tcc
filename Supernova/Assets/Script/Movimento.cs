@@ -122,4 +122,17 @@ public class Movimento : MonoBehaviour
         characterController.height = targetHeight;
         currentHeight = characterController.height;
     }
+    public void ToggleCrouch()
+    {
+        if (!isCrouching)
+        {
+            StopAllCoroutines(); // Para evitar bugs se apertar várias vezes
+            StartCoroutine(CrouchStand());
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(StandUp());
+        }
+    }
 }

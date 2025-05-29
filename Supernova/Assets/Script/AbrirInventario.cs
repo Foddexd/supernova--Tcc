@@ -15,7 +15,7 @@ public class InventoryToggle : MonoBehaviour
         }
     }
 
-    void ToggleInventory()
+    public void ToggleInventory()
     {
         isInventoryOpen = !isInventoryOpen;
         inventoryUI.SetActive(isInventoryOpen);
