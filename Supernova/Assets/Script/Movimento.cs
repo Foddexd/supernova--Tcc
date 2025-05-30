@@ -30,6 +30,14 @@ public class Movimento : MonoBehaviour
 
     public FixedJoystick joystick;
     public GameObject mobile;
+
+    //Animator
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -49,6 +57,7 @@ public class Movimento : MonoBehaviour
         {
             inputX = Input.GetAxis("Horizontal");
             inputY = Input.GetAxis("Vertical");
+            animator.SetBool("Andar",true);
         }
        // inputX = joystick.Horizontal;
       //  inputY = joystick.Vertical;
