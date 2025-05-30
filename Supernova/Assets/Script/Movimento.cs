@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Movimento : MonoBehaviour
@@ -33,7 +35,7 @@ public class Movimento : MonoBehaviour
 
     //Animator
     Animator animator;
-
+    
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -48,6 +50,7 @@ public class Movimento : MonoBehaviour
    
     void Update()
     {
+
         if (mobile.activeSelf)
         {
             inputX = joystick.Horizontal;
@@ -57,13 +60,23 @@ public class Movimento : MonoBehaviour
         {
             inputX = Input.GetAxis("Horizontal");
             inputY = Input.GetAxis("Vertical");
+            
+        }
+        if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
+        {
             animator.SetBool("Andar",true);
         }
-       // inputX = joystick.Horizontal;
-      //  inputY = joystick.Vertical;
 
 
-        isSprinting = Input.GetKey(KeyCode.LeftShift);
+        if (!Input.GetKey("w") || !Input.GetKey("a") || !Input.GetKey("s") || !Input.GetKey("d"))
+        {
+            animator.SetBool("Andar", false);
+        }
+            // inputX = joystick.Horizontal;
+            //  inputY = joystick.Vertical;
+
+
+            isSprinting = Input.GetKey(KeyCode.LeftShift);
 
        
         if (Input.GetKeyDown(KeyCode.C) && !isCrouching)
@@ -94,6 +107,7 @@ public class Movimento : MonoBehaviour
 
         
         characterController.Move(velocity * Time.deltaTime);
+
     }
 
    
@@ -144,4 +158,5 @@ public class Movimento : MonoBehaviour
             StartCoroutine(StandUp());
         }
     }
+    
 }
