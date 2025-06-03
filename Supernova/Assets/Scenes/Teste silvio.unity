@@ -3143,6 +3143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPausa: {fileID: 273157987}
+  MenuCreditos: {fileID: 0}
+  "MenuOp\xE7\xF5es": {fileID: 0}
+  MenuControles: {fileID: 0}
+  MenuPrincipal: {fileID: 0}
 --- !u!1 &912860405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5658,6 +5662,8 @@ MonoBehaviour:
   ArmaInventario: {fileID: 1164487367}
   "ArmaCh\xE3o": {fileID: 1410872856}
   botaoCanvas: {fileID: 949198133}
+  Porta1: {fileID: 0}
+  Porta2: {fileID: 0}
 --- !u!65 &1410872858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5837,6 +5843,10 @@ MonoBehaviour:
   viewDistance: 104.5
   rayCount: 120
   attackDistance: 0.1
+  memoryDuration: 5
+  investigateDurationPerPoint: 1.5
+  investigateRadius: 3
+  investigatePointCount: 3
 --- !u!195 &1451989900
 NavMeshAgent:
   m_ObjectHideFlags: 0
