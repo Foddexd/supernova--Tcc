@@ -9,11 +9,22 @@ public class PortaCartao : MonoBehaviour
     public GameObject PortaFechada1;
     public GameObject PortaFechada2;
 
+    public GameObject Botao;
+    
+    public void AbrirPorta()
+    {
+        
+
+            PortaFechada1.SetActive(false);
+            PortaFechada2.SetActive(false);
+            Botao.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             JogadorPerto = true;
+            Botao.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -21,16 +32,15 @@ public class PortaCartao : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             JogadorPerto = false;
+            Botao.SetActive(false);
         }
     }
     private void Update()
     {
-        if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && PegarCartão.TemCartao == true )
-        {
-            
-            PortaFechada1.SetActive(false);
-            PortaFechada2.SetActive(false);
-        }
+        if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && PegarCartão.TemCartao == true)
+    { 
+        AbrirPorta();
+    }
     }
 
     //Outro metodo
