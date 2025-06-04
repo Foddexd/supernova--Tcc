@@ -9,6 +9,7 @@ public class GunPickup : MonoBehaviour
     public GameObject botaoCanvas; // <-- Referência ao botão do Canvas
     public GameObject Porta1;
     public GameObject Porta2;
+    public GameObject Botao;
 
 
     private bool playerInRange;
@@ -43,6 +44,7 @@ public class GunPickup : MonoBehaviour
         botaoCanvas.SetActive(false); // Esconde o botão após pegar a arma
         Porta1.SetActive(false);
         Porta2.SetActive(false);
+        Botao.SetActive(true);
 
     }
 

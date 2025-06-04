@@ -6,10 +6,11 @@ public class PlayerShooting : MonoBehaviour
     public Transform firePoint; // onde o tiro nasce
     public Camera mainCamera;
     public bool temArma = false;
+    public GameObject Mobile;
 
     void Update()
     {
-        if (temArma && Input.GetButtonDown("Fire1"))
+        if (temArma && Input.GetButtonDown("Fire1") && Mobile == false)
         {
             Shoot();
         }
