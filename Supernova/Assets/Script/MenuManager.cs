@@ -25,7 +25,7 @@ public class MenuManager : MonoBehaviour
     public void FecharCreditos()
     {
         Time.timeScale = 1f;
-        MenuOpções.SetActive(false);
+        MenuCreditos.SetActive(false);
         MenuPrincipal.SetActive(true);
     }
     public void FecharOpções()
