@@ -32,6 +32,8 @@ public class Movimento : MonoBehaviour
     public FixedJoystick joystick;
     public GameObject mobile;
 
+  
+
     //Animator
     Animator animator;
     
@@ -46,7 +48,7 @@ public class Movimento : MonoBehaviour
         targetHeight = currentHeight;
     }
 
-   
+
     void Update()
     {
 
@@ -59,11 +61,11 @@ public class Movimento : MonoBehaviour
         {
             inputX = Input.GetAxis("Horizontal");
             inputY = Input.GetAxis("Vertical");
-            
+
         }
         if (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"))
         {
-            animator.SetBool("Andar",true);
+            animator.SetBool("Andar", true);
         }
 
 
@@ -71,13 +73,13 @@ public class Movimento : MonoBehaviour
         {
             animator.SetBool("Andar", false);
         }
-            // inputX = joystick.Horizontal;
-            //  inputY = joystick.Vertical;
+        // inputX = joystick.Horizontal;
+        //  inputY = joystick.Vertical;
 
 
-            isSprinting = Input.GetKey(KeyCode.LeftShift);
+        isSprinting = Input.GetKey(KeyCode.LeftShift);
 
-       
+
         if (Input.GetKeyDown(KeyCode.C) && !isCrouching)
         {
             StartCoroutine(CrouchStand());
@@ -87,29 +89,38 @@ public class Movimento : MonoBehaviour
             StartCoroutine(StandUp());
         }
 
-      
+
         Vector3 move = transform.right * inputX + transform.forward * inputY;
         float speed = isCrouching ? crouchSpeed : isSprinting ? sprintSpeed : normalSpeed;
 
-        
+
         characterController.Move(move * speed * Time.deltaTime);
 
-        
+
         if (characterController.isGrounded)
         {
-            velocity.y = -2f; 
+            velocity.y = -2f;
         }
         else
         {
-            velocity.y += gravity * Time.deltaTime; 
+            velocity.y += gravity * Time.deltaTime;
         }
 
-        
+
         characterController.Move(velocity * Time.deltaTime);
 
+        bool TocarNaTecla = (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"));
+
+        if (TocarNaTecla)
+        {
+            animator.SetBool("Andar", true);
+        }
+        if (!TocarNaTecla)
+        {
+            animator.SetBool("Andar", false);
+        }
     }
 
-   
     IEnumerator CrouchStand()
     {
         isCrouching = true;
