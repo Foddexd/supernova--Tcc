@@ -37,7 +37,7 @@ public class GunPickup : MonoBehaviour
 
     private void ColetarArma()
     {
-        shootingScript.temArma = true;
+        shootingScript.EquiparArma();
         gunVisual.SetActive(true);
         ArmaInventario.SetActive(true);
         ArmaChão.SetActive(false);
