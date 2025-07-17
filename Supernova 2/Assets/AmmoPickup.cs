@@ -42,7 +42,7 @@ public class AmmoPickup : MonoBehaviour
     {
         if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && ammoManager != null)
         {
-            ammoManager.AdicionarCartucho();
+                ammoManager.AdicionarCartucho();
 
                 BalaVisualInventario.SetActive(true);
                 
