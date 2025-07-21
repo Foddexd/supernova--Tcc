@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PegarCartão : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class PegarCartão : MonoBehaviour
     public bool JogadorPerto = false;
 
     public static bool TemCartao=false;
+
+    public GameObject texto;
+
+    public float tempoExibicao = 2f;
 
     public void PegarCartao()
     {
@@ -43,9 +48,20 @@ public class PegarCartão : MonoBehaviour
         if (JogadorPerto && Input.GetKeyDown(KeyCode.E))
         {
             PegarCartao();
+            MostrarTexto();
             Botao.SetActive(false);
 
         }
     }
-    
+    public void MostrarTexto()
+    {
+        StartCoroutine(ExibirTextoTemporario());
+    }
+    IEnumerator ExibirTextoTemporario()
+    {
+        texto.SetActive(true);
+        yield return new WaitForSeconds(tempoExibicao);
+        texto.SetActive(false);
+    }
+
 }
