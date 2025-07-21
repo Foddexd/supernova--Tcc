@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class Ler : MonoBehaviour
 {
     private bool PlayerNoTrigger;
     private bool estaLendo = false;
     public GameObject FichaParaLer;
     public GameObject botaoInteracao; // Botão de UI que será ativado/desativado
+
+    public GameObject texto;
+
+    
 
     private void Start()
     {
@@ -19,6 +23,7 @@ public class Ler : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerNoTrigger = true;
+            texto.SetActive(true);
             if (botaoInteracao != null)
                 botaoInteracao.SetActive(true); // Mostra o botão quando o jogador entra
         }
@@ -29,6 +34,7 @@ public class Ler : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerNoTrigger = false;
+            texto.SetActive(false);
             if (estaLendo)
                 AlternarLeitura(); // Sai da leitura ao sair da área
 

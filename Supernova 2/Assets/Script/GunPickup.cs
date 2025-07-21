@@ -11,6 +11,7 @@ public class GunPickup : MonoBehaviour
     public GameObject Porta2;
     public GameObject Botao;
 
+    public GameObject texto;
 
     private bool playerInRange;
 
@@ -53,6 +54,7 @@ public class GunPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            texto.SetActive(true);
             botaoCanvas.SetActive(true); // Mostra o botão quando se aproxima
         }
     }
@@ -62,6 +64,7 @@ public class GunPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            texto.SetActive(false);
             botaoCanvas.SetActive(false); // Esconde o botão ao sair
         }
     }

@@ -15,21 +15,25 @@ public class PegarKitMedico : MonoBehaviour
 
     public float tempoExibicao = 2f;
 
+    public GameObject textopegar;
+
     // Start is called before the first frame update
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && KitVisual.activeSelf)
         {
             JogadorPerto = true;
+            textopegar.SetActive(true);
 
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && KitVisual.activeSelf) 
         {
             JogadorPerto = false;
+            textopegar.SetActive(false);
 
         }
     }
@@ -37,11 +41,14 @@ public class PegarKitMedico : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (JogadorPerto && Input.GetKeyDown(KeyCode.E))
+        if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && KitVisual.activeSelf)
         {
+            textopegar.SetActive(false);
             KitVisual.SetActive(false);
             MostrarTexto();
             KitInventario.SetActive(true);
+
+           
         }
     }
     public void MostrarTexto()

@@ -18,6 +18,8 @@ public class PegarCartão : MonoBehaviour
 
     public float tempoExibicao = 2f;
 
+    public GameObject textointeração;
+
     public void PegarCartao()
     {
         CabideComCartao.SetActive(false);
@@ -28,26 +30,29 @@ public class PegarCartão : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && CabideComCartao.activeSelf)
         {
             JogadorPerto = true;
+            textointeração.SetActive(true) ;
             Botao.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && CabideComCartao.activeSelf)
         {
             JogadorPerto = false;
+            textointeração.SetActive(false) ;
             Botao.SetActive(false);
         }
     }
     // Update is called once per frame
     void Update()
     {
-        if (JogadorPerto && Input.GetKeyDown(KeyCode.E))
+        if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && CabideComCartao.activeSelf)
         {
             PegarCartao();
+            textointeração.SetActive(false);
             MostrarTexto();
             Botao.SetActive(false);
 
