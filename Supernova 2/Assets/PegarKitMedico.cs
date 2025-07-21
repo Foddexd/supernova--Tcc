@@ -8,7 +8,6 @@ public class PegarKitMedico : MonoBehaviour
     public GameObject KitInventario;
     public bool JogadorPerto = false;
 
-    public int ItemId;
     // Start is called before the first frame update
 
     private void OnTriggerEnter(Collider other)
