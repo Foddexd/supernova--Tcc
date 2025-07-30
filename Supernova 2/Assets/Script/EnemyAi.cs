@@ -163,7 +163,7 @@ public class EnemyAi : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private bool CanSeePlayer()
+    public bool CanSeePlayer()
     {
         if (player == null) return false;
 
