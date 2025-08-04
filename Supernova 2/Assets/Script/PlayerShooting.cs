@@ -37,7 +37,7 @@ public class PlayerShooting : MonoBehaviour
 #if !UNITY_ANDROID && !UNITY_IOS
         if (temArma && Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            TentarAtirar();
         }
         if (temArma && Input.GetKeyDown(KeyCode.R))
         {
@@ -62,9 +62,13 @@ public class PlayerShooting : MonoBehaviour
             Shoot();
             balasNoCartucho--;
         }
+        else if (ammoManager != null && ammoManager.GetCartuchos() > 0)
+        {
+            Debug.Log("Sem balas no cartucho! Pressione R para recarregar.");
+        }
         else
         {
-            Debug.Log("Sem balas! Pressione R para recarregar.");
+            Debug.Log("Acabaram todas as balas e cartuchos!");
         }
     }
     void Shoot()
@@ -80,9 +84,15 @@ public class PlayerShooting : MonoBehaviour
     }
     void Recarregar()
     {
+        if (balasNoCartucho == maxBalasPorCartucho)
+        {
+            Debug.Log("Cartucho cheio.");
+            return;
+        }
+
         if (ammoManager != null && ammoManager.ConsumirCartucho())
         {
-            Debug.Log("Recarregando...");
+            Debug.Log("Recarregando... Perdeu as balas restantes.");
             balasNoCartucho = maxBalasPorCartucho;
         }
         else

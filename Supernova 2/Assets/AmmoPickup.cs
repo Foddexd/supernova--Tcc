@@ -24,7 +24,10 @@ public class AmmoPickup : MonoBehaviour
             JogadorPerto = true;
 
             ammoManager = other.GetComponent<AmmoManager>();
-
+            if (ammoManager == null)
+            {
+                Debug.LogError("AmmoManager não encontrado no Player!");
+            }
         }
     }
     private void OnTriggerExit(Collider other)
