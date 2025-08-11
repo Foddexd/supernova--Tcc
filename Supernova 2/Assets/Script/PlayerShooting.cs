@@ -21,28 +21,22 @@ public class PlayerShooting : MonoBehaviour
 
     void Start()
     {
-        ammoManager = GetComponent<AmmoManager>();
+        ammoManager = GetComponent<AmmoManager>()
+                   ?? GetComponentInParent<AmmoManager>()
+                   ?? FindObjectOfType<AmmoManager>();
 
-        // Se pegar a arma já com um cartucho
-        if (temArma)
-        {
-            balasNoCartucho = maxBalasPorCartucho;
-        }
+        if (ammoManager == null)
+            Debug.LogWarning("PlayerShooting: nenhum AmmoManager encontrado. Pickup pode não funcionar.");
 
+        if (temArma) balasNoCartucho = maxBalasPorCartucho;
         AtualizarUI();
     }
 
     void Update()
     {
 #if !UNITY_ANDROID && !UNITY_IOS
-        if (temArma && Input.GetMouseButtonDown(0))
-        {
-            TentarAtirar();
-        }
-        if (temArma && Input.GetKeyDown(KeyCode.R))
-        {
-            Recarregar();
-        }
+        if (temArma && Input.GetMouseButtonDown(0)) TentarAtirar();
+        if (temArma && Input.GetKeyDown(KeyCode.R)) Recarregar();
 #endif
         AtualizarUI();
     }

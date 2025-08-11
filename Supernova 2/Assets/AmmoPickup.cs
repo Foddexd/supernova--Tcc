@@ -1,57 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
     public GameObject BalaVisualInventario;
     private AmmoManager ammoManager;
-
-    public bool JogadorPerto;
-
-    private PlayerShooting jogadorScript;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    private bool jogadorPerto;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            JogadorPerto = true;
+        // tenta achar AmmoManager no próprio collider, nos pais ou nos filhos
+        ammoManager = other.GetComponent<AmmoManager>()
+                    ?? other.GetComponentInParent<AmmoManager>()
+                    ?? other.GetComponentInChildren<AmmoManager>();
 
-            ammoManager = other.GetComponent<AmmoManager>();
-            if (ammoManager == null)
-            {
-                Debug.LogError("AmmoManager não encontrado no Player!");
-            }
+        if (ammoManager != null)
+        {
+            jogadorPerto = true;
+            Debug.Log($"AmmoPickup: jogador entrou. AmmoManager encontrado em {ammoManager.gameObject.name}");
+        }
+        else
+        {
+            Debug.Log($"AmmoPickup: {other.gameObject.name} entrou, mas AmmoManager não foi encontrado nessa hierarquia.");
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        // limpa referência quando o mesmo jogador sai
+        if (other.GetComponentInParent<AmmoManager>() == ammoManager)
         {
-            JogadorPerto = false;
-
+            jogadorPerto = false;
             ammoManager = null;
-
+            Debug.Log("AmmoPickup: jogador saiu da área.");
         }
     }
 
     private void Update()
     {
-        if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && ammoManager != null)
+        if (jogadorPerto && Input.GetKeyDown(KeyCode.E))
         {
-                ammoManager.AdicionarCartucho();
-
-                BalaVisualInventario.SetActive(true);
-                
+            if (ammoManager != null)
+            {
+                ammoManager.AdicionarCartucho(1);
+                if (BalaVisualInventario != null) BalaVisualInventario.SetActive(true);
+                Debug.Log("AmmoPickup: cartucho pego. Destruindo pickup.");
                 Destroy(gameObject);
-            
-
+            }
+            else
+            {
+                Debug.LogWarning("AmmoPickup: tentou pegar mas ammoManager é null.");
+            }
         }
     }
 }
