@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
-
 public class PegarBalas : MonoBehaviour
 {
     public GameObject BalaVisual;
@@ -12,12 +10,20 @@ public class PegarBalas : MonoBehaviour
     public bool JogadorPerto = false;
 
     public GameObject texto;
-
     public float tempoExibicao = 2f;
-
     public GameObject textopegar;
 
-    // Start is called before the first frame update
+    private AmmoManager ammoManager;
+
+    private void Start()
+    {
+        // Tenta encontrar o AmmoManager na cena
+        ammoManager = FindObjectOfType<AmmoManager>();
+        if (ammoManager == null)
+        {
+            Debug.LogWarning("PegarBalas: Nenhum AmmoManager encontrado.");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,20 +31,18 @@ public class PegarBalas : MonoBehaviour
         {
             JogadorPerto = true;
             textopegar.SetActive(true);
-
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player") && BalaVisual.activeSelf)
         {
             JogadorPerto = false;
             textopegar.SetActive(false);
-
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && BalaVisual.activeSelf)
@@ -46,15 +50,20 @@ public class PegarBalas : MonoBehaviour
             textopegar.SetActive(false);
             BalaVisual.SetActive(false);
             MostrarTexto();
-            BalaInventario.SetActive(true);
 
-
+            // Adiciona um cartucho ao AmmoManager
+            if (ammoManager != null)
+            {
+                ammoManager.AdicionarCartucho();
+            }
         }
     }
+
     public void MostrarTexto()
     {
         StartCoroutine(ExibirTextoTemporario());
     }
+
     IEnumerator ExibirTextoTemporario()
     {
         texto.SetActive(true);
