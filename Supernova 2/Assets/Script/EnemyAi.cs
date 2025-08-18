@@ -167,6 +167,12 @@ public class EnemyAi : MonoBehaviour
     {
         if (player == null) return false;
 
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController != null && playerController.IsHiding())
+        {
+            return false; // O jogador está escondido
+        }
+
         Vector3 origin = transform.position + Vector3.up * 1.5f;
         Vector3 directionToPlayer = (player.position - origin).normalized;
 
