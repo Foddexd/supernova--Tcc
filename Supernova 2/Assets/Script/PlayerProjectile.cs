@@ -20,7 +20,15 @@ public class PlayerProjectile : MonoBehaviour
             {
                 enemy.TakeDamage(damage);
             }
-
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("ExplosiveBarrel"))
+        {
+            ExplosiveBarrel barrel = other.GetComponent<ExplosiveBarrel>();
+            if (barrel != null)
+            {
+                barrel.TakeDamage(damage);
+            }
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Player")) // não destrói se colidir com o jogador

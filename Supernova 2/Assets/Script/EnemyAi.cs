@@ -48,6 +48,8 @@ public class EnemyAi : MonoBehaviour
     private float investigateTimer = 0f;
     private bool isInvestigating = false;
 
+    public int barrelLives = 3;
+
 
 
     private void Awake()
@@ -278,6 +280,18 @@ public class EnemyAi : MonoBehaviour
                     agent.SetDestination(investigatePoints[currentInvestigateIndex]);
                 }
             }
+        }
+
+    }
+    public void TakeBarrelDamage(int damage)
+    {
+        barrelLives -= damage;
+        Debug.Log("Boss recebeu dano do barril! Vidas restantes: " + barrelLives);
+        if (barrelLives <= 0)
+        {
+            // Aqui você pode colocar a lógica para o que acontece quando o boss perde todas as vidas de barril
+            Debug.Log("Boss derrotado pelos barris!");
+            Destroy(gameObject);
         }
     }
 
