@@ -1,0 +1,66 @@
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class CadeadoNumerico : MonoBehaviour
+{
+    public int[] numeros = new int[3]; // Os números atuais do cadeado
+    public int[] numerosMaximos = new int[3] { 9, 9, 9 }; // Máximo para cada dígito (ex: 0-9)
+    public int[] numerosMinimos = new int[3] { 0, 0, 0 }; // Mínimo para cada dígito
+
+    public int[] sequenciaCorreta = new int[3] { 1, 2, 3 }; // Sequência correta para destravar
+
+    public TMP_Text[] textosNumeros; // Referência aos textos TextMeshPro que mostram os números na UI
+    public TMP_Text mensagem; // Texto TextMeshPro para mostrar mensagem de sucesso
+
+
+    private void Start()
+    {
+        AtualizarTexto();
+        mensagem.text = "";
+    }
+
+    // Função para aumentar o número do dígito 'indice'
+    public void AumentarNumero(int indice)
+    {
+        numeros[indice]++;
+        if (numeros[indice] > numerosMaximos[indice])
+            numeros[indice] = numerosMinimos[indice];
+        AtualizarTexto();
+        VerificarSequencia();
+    }
+
+    // Função para diminuir o número do dígito 'indice'
+    public void DiminuirNumero(int indice)
+    {
+        numeros[indice]--;
+        if (numeros[indice] < numerosMinimos[indice])
+            numeros[indice] = numerosMaximos[indice];
+        AtualizarTexto();
+        VerificarSequencia();
+    }
+
+    // Atualiza os textos na UI para mostrar os números atuais
+    void AtualizarTexto()
+    {
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            textosNumeros[i].text = numeros[i].ToString();
+        }
+    }
+
+    // Verifica se a sequência está correta
+    void VerificarSequencia()
+    {
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            if (numeros[i] != sequenciaCorreta[i])
+            {
+                mensagem.text = "";
+                return;
+            }
+        }
+        mensagem.text = "Cadeado destravado!";
+        // Aqui você pode colocar outras ações, como abrir uma porta, etc.
+    }
+}
