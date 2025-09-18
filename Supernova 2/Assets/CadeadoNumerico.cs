@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class CadeadoNumerico : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class CadeadoNumerico : MonoBehaviour
     public TMP_Text[] textosNumeros; // Referência aos textos TextMeshPro que mostram os números na UI
     public TMP_Text mensagem; // Texto TextMeshPro para mostrar mensagem de sucesso
 
+    private bool desbloqueado = false;
+
+    public AbrirPuzzle abrirPuzzleScript;
+
+    public GameObject ColliderAbrirMinigame;
+    public GameObject TextoInteragir;
 
     private void Start()
     {
@@ -60,7 +67,19 @@ public class CadeadoNumerico : MonoBehaviour
                 return;
             }
         }
+        mensagem.gameObject.SetActive(true);
         mensagem.text = "Cadeado destravado!";
+        desbloqueado = true;
+        StartCoroutine(FecharMinigame());
         // Aqui você pode colocar outras ações, como abrir uma porta, etc.
+    }
+    IEnumerator FecharMinigame()
+    {
+        abrirPuzzleScript.EstadoPuzzle();
+        yield return new WaitForSecondsRealtime(2f);
+        mensagem.gameObject.SetActive(false);
+        ColliderAbrirMinigame.gameObject.SetActive(false);
+        TextoInteragir.gameObject.SetActive(false);
+        
     }
 }
