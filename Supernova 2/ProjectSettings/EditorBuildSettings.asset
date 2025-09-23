@@ -8,19 +8,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Inicio.unity
     guid: 71c3e1e1e984027449f87a9a91835d90
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Teste dex/Teste Leo 1 e 2.unity
     guid: b4cf07a960c366941919e44f47de731e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Inicio.unity
     guid: e3cb3abf5b881764ea9f9d098fb0ee6c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Teste silvio.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Teste dex.unity
     guid: 111638ebb1163034690f7666b36f2581
   - enabled: 0
     path: Assets/Inicio azul.unity
     guid: 1abb4d096f1829d498ca7bc4ea98d22f
+  - enabled: 1
+    path: Assets/Scenes/Testes Atual/Teste Leo 1 e 2 2.unity
+    guid: 1c1cb05368a0e5b4eab844e9d7f9885c
   m_configObjects: {}
