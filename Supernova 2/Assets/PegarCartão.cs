@@ -46,7 +46,7 @@ public class PegarCartão : MonoBehaviour
             Botao.SetActive(false);
         }
     }
-    // Update is called once per frame
+    
     void Update()
     {
         if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && CabideComCartao.activeSelf)

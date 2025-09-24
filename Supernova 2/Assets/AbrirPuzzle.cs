@@ -40,7 +40,7 @@ public class AbrirPuzzle : MonoBehaviour
         }
     }
 
-    // Método público para ser chamado pelo botão mobile
+   
     public void EstadoPuzzle()
     {
         PuzzleAberto = !PuzzleAberto;

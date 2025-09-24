@@ -6,7 +6,7 @@ public class Ler : MonoBehaviour
     private bool PlayerNoTrigger;
     private bool estaLendo = false;
     public GameObject FichaParaLer;
-    public GameObject botaoInteracao; // Botão de UI que será ativado/desativado
+    public GameObject botaoInteracao; 
 
     public GameObject texto;
 
@@ -15,7 +15,7 @@ public class Ler : MonoBehaviour
     private void Start()
     {
         if (botaoInteracao != null)
-            botaoInteracao.SetActive(false); // Garante que o botão comece desativado
+            botaoInteracao.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +25,7 @@ public class Ler : MonoBehaviour
             PlayerNoTrigger = true;
             texto.SetActive(true);
             if (botaoInteracao != null)
-                botaoInteracao.SetActive(true); // Mostra o botão quando o jogador entra
+                botaoInteracao.SetActive(true); 
         }
     }
 
@@ -36,10 +36,10 @@ public class Ler : MonoBehaviour
             PlayerNoTrigger = false;
             texto.SetActive(false);
             if (estaLendo)
-                AlternarLeitura(); // Sai da leitura ao sair da área
+                AlternarLeitura(); 
 
             if (botaoInteracao != null)
-                botaoInteracao.SetActive(false); // Esconde o botão
+                botaoInteracao.SetActive(false); 
         }
     }
 
@@ -51,7 +51,7 @@ public class Ler : MonoBehaviour
         }
     }
 
-    // Método público para ser chamado pelo botão mobile
+    
     public void AlternarLeitura()
     {
         estaLendo = !estaLendo;

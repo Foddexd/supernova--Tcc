@@ -30,7 +30,7 @@ public class EnemyAi : MonoBehaviour
     public float fieldOfView = 120f;
     public float viewDistance = 15f;
     public int rayCount = 25;
-    public float attackDistance = 5f; // << distância configurável para atacar
+    public float attackDistance = 5f; 
 
     // Memória do jogador
     private float lastTimeSeenPlayer = Mathf.NegativeInfinity;
@@ -289,7 +289,7 @@ public class EnemyAi : MonoBehaviour
         Debug.Log("Boss recebeu dano do barril! Vidas restantes: " + barrelLives);
         if (barrelLives <= 0)
         {
-            // Aqui você pode colocar a lógica para o que acontece quando o boss perde todas as vidas de barril
+            // Colocar aq oq acontece qnd o boss morrer
             Debug.Log("Boss derrotado pelos barris!");
             Destroy(gameObject);
         }

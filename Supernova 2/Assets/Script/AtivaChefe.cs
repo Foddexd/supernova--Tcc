@@ -19,7 +19,7 @@ public class AtivadorPorTrigger : MonoBehaviour
 
             aoAtivar.Invoke();
 
-            // Destroi o objeto que contém este script (e o trigger)
+            
             Destroy(gameObject);
         }
     }

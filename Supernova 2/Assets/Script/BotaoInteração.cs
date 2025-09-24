@@ -11,7 +11,7 @@ public class BotaoInteracao : MonoBehaviour
 
     void Start()
     {
-        botaoCanvas.SetActive(false); // Garante que comece desativado
+        botaoCanvas.SetActive(false); 
     }
 
     void Update()
@@ -22,7 +22,7 @@ public class BotaoInteracao : MonoBehaviour
         }
     }
 
-    // Esse método pode ser chamado pelo botão do Canvas
+    
     public void InteragirComBotao()
     {
         if (jogadorPerto)
@@ -31,7 +31,7 @@ public class BotaoInteracao : MonoBehaviour
         }
     }
 
-    // A lógica de alternar ativação/desativação
+    
     private void AlternarObjetos()
     {
         alternado = !alternado;

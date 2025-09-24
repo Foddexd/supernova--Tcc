@@ -26,7 +26,7 @@ public class ExplosiveBarrel : MonoBehaviour
             Instantiate(explosionEffect, transform.position, Quaternion.identity);
         }
 
-        // Detectar o boss na área da explosão
+        
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius, bossLayer);
         foreach (Collider hit in hitColliders)
         {
@@ -37,13 +37,13 @@ public class ExplosiveBarrel : MonoBehaviour
             }
         }
 
-        // Destruir o barril após a explosão
+     
         Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()
     {
-        // Visualizar o raio da explosão na cena
+        
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }

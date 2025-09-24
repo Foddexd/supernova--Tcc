@@ -22,11 +22,11 @@ public class InventoryToggle : MonoBehaviour
 
         if (isInventoryOpen)
         {
-            Time.timeScale = 0f; // Pausa o jogo
+            Time.timeScale = 0f; 
         }
         else
         {
-            Time.timeScale = 1f; // Retoma o jogo
+            Time.timeScale = 1f; 
         }
     }
 }

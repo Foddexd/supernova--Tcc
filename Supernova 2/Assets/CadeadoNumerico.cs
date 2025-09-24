@@ -27,7 +27,7 @@ public class CadeadoNumerico : MonoBehaviour
         mensagem.text = "";
     }
 
-    // Função para aumentar o número do dígito 'indice'
+  
     public void AumentarNumero(int indice)
     {
         numeros[indice]++;
@@ -37,7 +37,7 @@ public class CadeadoNumerico : MonoBehaviour
         VerificarSequencia();
     }
 
-    // Função para diminuir o número do dígito 'indice'
+   
     public void DiminuirNumero(int indice)
     {
         numeros[indice]--;
@@ -47,7 +47,7 @@ public class CadeadoNumerico : MonoBehaviour
         VerificarSequencia();
     }
 
-    // Atualiza os textos na UI para mostrar os números atuais
+   
     void AtualizarTexto()
     {
         for (int i = 0; i < numeros.Length; i++)
@@ -56,7 +56,7 @@ public class CadeadoNumerico : MonoBehaviour
         }
     }
 
-    // Verifica se a sequência está correta
+   
     void VerificarSequencia()
     {
         for (int i = 0; i < numeros.Length; i++)
@@ -71,7 +71,7 @@ public class CadeadoNumerico : MonoBehaviour
         mensagem.text = "Cadeado destravado!";
         desbloqueado = true;
         StartCoroutine(FecharMinigame());
-        // Aqui você pode colocar outras ações, como abrir uma porta, etc.
+        
     }
     IEnumerator FecharMinigame()
     {

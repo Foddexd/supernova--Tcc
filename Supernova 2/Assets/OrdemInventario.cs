@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class OrdemInventario : MonoBehaviour
 {
-    public GameObject[] inventorySlots; // Arraste aqui os GameObjects dos slots (em ordem)
-    public Sprite[] itemIcons;          // Arraste os ícones de cada item correspondente
+    public GameObject[] inventorySlots; // GameObjects dos slots (em ordem)
+    public Sprite[] itemIcons;          // ícones de cada item correspondente
 
-    // Método para adicionar um item ao inventário
+    
     public void AddItem(int itemId)
     {
         foreach (GameObject slot in inventorySlots)

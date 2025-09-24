@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections; // Necessário para usar IEnumerator e corrotinas
+using System.Collections;
 using TMPro;
 
 public class UsarKitMedico : MonoBehaviour

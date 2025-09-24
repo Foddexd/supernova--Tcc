@@ -13,15 +13,15 @@ public class InventoryItem
 public class InventoryManager : MonoBehaviour
 {
     public int maxInventorySize = 50;
-    public InventoryItem[] items; // Preencha no Inspetor
+    public InventoryItem[] items; 
     public TextMeshProUGUI spaceText;
 
     private void Start()
     {
-        UpdateActiveItemsFromScene(); // Inicializa com os objetos da cena
+        UpdateActiveItemsFromScene();
     }
 
-    // Atualiza o valor visual do inventário
+    
     public void UpdateInventoryUI()
     {
         int usedSpace = 0;
@@ -38,7 +38,7 @@ public class InventoryManager : MonoBehaviour
         spaceText.text = $"Espaço: {remainingSpace} / {maxInventorySize}";
     }
 
-    // Atualiza os itens ativos com base nos GameObjects da UI arrastados
+   
     public void UpdateActiveItemsFromScene()
     {
         foreach (InventoryItem item in items)
@@ -57,18 +57,18 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-        // Atualiza a UI com o status atual
+      
         UpdateInventoryUI();
     }
 
-    // Método para ativar um item específico (exemplo)
+   
     public void ToggleItem(int index)
     {
         if (index >= 0 && index < items.Length)
         {
             // Alterna o estado ativo/inativo do item
             items[index].isActive = !items[index].isActive;
-            UpdateInventoryUI(); // Atualiza a UI
+            UpdateInventoryUI(); 
         }
     }
 }

@@ -7,7 +7,7 @@ public class TriggerDesativador : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Garante que apenas o jogador ativa
+        if (other.CompareTag("Player")) 
         {
             item1.SetActive(false);
             item2.SetActive(false);

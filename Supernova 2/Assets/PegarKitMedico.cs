@@ -17,7 +17,7 @@ public class PegarKitMedico : MonoBehaviour
 
     public GameObject textopegar;
 
-    // Start is called before the first frame update
+  
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,7 +38,7 @@ public class PegarKitMedico : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         if (JogadorPerto && Input.GetKeyDown(KeyCode.E) && KitVisual.activeSelf)

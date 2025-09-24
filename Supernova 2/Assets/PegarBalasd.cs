@@ -17,7 +17,7 @@ public class PegarBalas : MonoBehaviour
 
     private void Start()
     {
-        // Tenta encontrar o AmmoManager na cena
+        
         ammoManager = FindObjectOfType<AmmoManager>();
         if (ammoManager == null)
         {
@@ -51,7 +51,7 @@ public class PegarBalas : MonoBehaviour
             BalaVisual.SetActive(false);
             MostrarTexto();
 
-            // Adiciona um cartucho ao AmmoManager
+           
             if (ammoManager != null)
             {
                 ammoManager.AdicionarCartucho();

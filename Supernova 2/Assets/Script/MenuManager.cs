@@ -78,14 +78,14 @@ public class MenuManager : MonoBehaviour
 
     public void ReiniciarJogo()
     {
-        Time.timeScale = 1f; // Garante que o tempo volte ao normal
+        Time.timeScale = 1f; 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void SairDoJogo()
     {
-        Time.timeScale = 1f; // Opcional, em caso de estar pausado
+        Time.timeScale = 1f; 
         Application.Quit();
-        Debug.Log("Jogo encerrado"); // Apenas aparece no editor
+        Debug.Log("Jogo encerrado"); 
     }
 }

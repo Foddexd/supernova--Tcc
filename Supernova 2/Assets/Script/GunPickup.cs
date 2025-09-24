@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class GunPickup : MonoBehaviour
 {
-    public GameObject gunVisual; // Para ativar no jogador
+    public GameObject gunVisual; 
     public PlayerShooting shootingScript;
     public GameObject ArmaInventario;
     public GameObject ArmaChão;
-    public GameObject botaoCanvas; // <-- Referência ao botão do Canvas
+    public GameObject botaoCanvas; 
     public GameObject Porta1;
     public GameObject Porta2;
     public GameObject Botao;
@@ -17,7 +17,7 @@ public class GunPickup : MonoBehaviour
 
     void Start()
     {
-        botaoCanvas.SetActive(false); // Garante que comece desativado
+        botaoCanvas.SetActive(false);
     }
 
     void Update()
@@ -42,7 +42,7 @@ public class GunPickup : MonoBehaviour
         gunVisual.SetActive(true);
         ArmaInventario.SetActive(true);
         ArmaChão.SetActive(false);
-        botaoCanvas.SetActive(false); // Esconde o botão após pegar a arma
+        botaoCanvas.SetActive(false); 
         Porta1.SetActive(false);
         Porta2.SetActive(false);
         Botao.SetActive(true);
@@ -55,7 +55,7 @@ public class GunPickup : MonoBehaviour
         {
             playerInRange = true;
             texto.SetActive(true);
-            botaoCanvas.SetActive(true); // Mostra o botão quando se aproxima
+            botaoCanvas.SetActive(true); 
         }
     }
 
@@ -65,7 +65,7 @@ public class GunPickup : MonoBehaviour
         {
             playerInRange = false;
             texto.SetActive(false);
-            botaoCanvas.SetActive(false); // Esconde o botão ao sair
+            botaoCanvas.SetActive(false); 
         }
     }
 }
