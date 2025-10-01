@@ -8,9 +8,6 @@ public class Movimento : MonoBehaviour
     private float inputX;
     private float inputY;
 
-    private CharacterController characterController;
-
-    
     public float normalSpeed = 3f;  
     public float sprintSpeed = 6f;  
     public float crouchSpeed = 1.5f;  
@@ -31,23 +28,15 @@ public class Movimento : MonoBehaviour
 
     public FixedJoystick joystick;
     public GameObject mobile;
-
-  
-
-    //Animator
-    Animator animator;
     
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    public Animator animator;
+    public CharacterController characterController;
+
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
         currentHeight = characterController.height;
         targetHeight = currentHeight;
     }
-
 
     void Update()
     {
@@ -93,8 +82,10 @@ public class Movimento : MonoBehaviour
         Vector3 move = transform.right * inputX + transform.forward * inputY;
         float speed = isCrouching ? crouchSpeed : isSprinting ? sprintSpeed : normalSpeed;
 
-
-        characterController.Move(move * speed * Time.deltaTime);
+        if(characterController.enabled)
+        {
+            characterController.Move(move * speed * Time.deltaTime);
+        }
 
 
         if (characterController.isGrounded)
@@ -106,8 +97,10 @@ public class Movimento : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
         }
 
-
-        characterController.Move(velocity * Time.deltaTime);
+        if(characterController.enabled)
+        {
+            characterController.Move(velocity * Time.deltaTime);
+        }
 
         bool TocarNaTecla = (Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d"));
 
