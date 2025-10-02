@@ -27,7 +27,7 @@ public class Movimento : MonoBehaviour
     private float currentHeight;
 
     public FixedJoystick joystick;
-    public GameObject mobile;
+  
     
     public Animator animator;
     public CharacterController characterController;
@@ -41,12 +41,7 @@ public class Movimento : MonoBehaviour
     void Update()
     {
 
-        if (mobile.activeSelf)
-        {
-            inputX = joystick.Horizontal;
-            inputY = joystick.Vertical;
-        }
-        else
+      
         {
             inputX = Input.GetAxis("Horizontal");
             inputY = Input.GetAxis("Vertical");
@@ -152,7 +147,7 @@ public class Movimento : MonoBehaviour
     {
         if (!isCrouching)
         {
-            StopAllCoroutines(); // Para evitar bugs se apertar várias vezes
+            StopAllCoroutines(); // Para evitar bugs se apertar vï¿½rias vezes
             StartCoroutine(CrouchStand());
         }
         else
