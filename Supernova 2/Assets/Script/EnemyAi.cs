@@ -60,6 +60,14 @@ public class EnemyAi : MonoBehaviour
 
     private void Update()
     {
+
+        BossStun bossStun = GetComponent<BossStun>();
+        if (bossStun != null && bossStun.EstaStunado)
+        {
+            agent.isStopped = true;
+            return; // Pula toda a lógica da IA durante o stun
+        }
+
         bool canSeePlayer = CanSeePlayer();
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         bool inAttackRange = distanceToPlayer <= attackDistance;
@@ -92,6 +100,7 @@ public class EnemyAi : MonoBehaviour
         {
             Patroling();
         }
+
     }
 
     private void Patroling()
