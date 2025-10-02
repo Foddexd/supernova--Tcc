@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Inicio.unity
     guid: 71c3e1e1e984027449f87a9a91835d90
   - enabled: 0
-    path: Assets/Scenes/Teste dex/Jogo Oficial.unity
+    path: Assets/Scenes/Teste dex/Teste luz.unity
     guid: b4cf07a960c366941919e44f47de731e
   - enabled: 0
     path: Assets/Inicio.unity
