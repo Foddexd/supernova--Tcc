@@ -33,10 +33,7 @@ public class BossStun : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T)) // Pressione T para simular um tiro
-        {
-            LevarTiro();
-        }
+       
         // Durante o stun, conta o tempo e para o movimento
         if (estaStunado)
         {
