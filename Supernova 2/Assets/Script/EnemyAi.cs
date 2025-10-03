@@ -26,19 +26,19 @@ public class EnemyAi : MonoBehaviour
     public GameObject projectile;
     public Transform firePoint;
 
-    // Detecção
+    // Detecï¿½ï¿½o
     public float fieldOfView = 120f;
     public float viewDistance = 15f;
     public int rayCount = 25;
     public float attackDistance = 5f; 
 
-    // Memória do jogador
+    // Memï¿½ria do jogador
     private float lastTimeSeenPlayer = Mathf.NegativeInfinity;
     public float memoryDuration = 5f;
     private Vector3 lastKnownPlayerPosition;
     private bool isChasingLastKnownPosition = false;
 
-    // Investigação
+    // Investigaï¿½ï¿½o
     public float investigateDurationPerPoint = 1.5f;
     public float investigateRadius = 3f;
     public int investigatePointCount = 3;
@@ -65,14 +65,14 @@ public class EnemyAi : MonoBehaviour
         if (bossStun != null && bossStun.EstaStunado)
         {
             agent.isStopped = true;
-            return; // Pula toda a lógica da IA durante o stun
+            return; // Pula toda a lï¿½gica da IA durante o stun
         }
 
         bool canSeePlayer = CanSeePlayer();
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         bool inAttackRange = distanceToPlayer <= attackDistance;
 
-        Debug.Log("can see player: " + canSeePlayer + ", in attack range: " + inAttackRange);
+        //Debug.Log("can see player: " + canSeePlayer + ", in attack range: " + inAttackRange);
 
         if (canSeePlayer)
         {
@@ -181,7 +181,7 @@ public class EnemyAi : MonoBehaviour
         PlayerController playerController = player.GetComponent<PlayerController>();
         if (playerController != null && playerController.IsHiding())
         {
-            return false; // O jogador está escondido
+            return false; // O jogador estï¿½ escondido
         }
 
         Vector3 origin = transform.position + Vector3.up * 1.5f;
@@ -264,7 +264,7 @@ public class EnemyAi : MonoBehaviour
 
         if (currentInvestigateIndex >= investigatePoints.Count)
         {
-            // Acabou os pontos, termina a investigação
+            // Acabou os pontos, termina a investigaï¿½ï¿½o
             isInvestigating = false;
             lastTimeSeenPlayer = Mathf.NegativeInfinity;
             return;
@@ -295,11 +295,11 @@ public class EnemyAi : MonoBehaviour
     public void TakeBarrelDamage(int damage)
     {
         barrelLives -= damage;
-        Debug.Log("Boss recebeu dano do barril! Vidas restantes: " + barrelLives);
+       // Debug.Log("Boss recebeu dano do barril! Vidas restantes: " + barrelLives);
         if (barrelLives <= 0)
         {
             // Colocar aq oq acontece qnd o boss morrer
-            Debug.Log("Boss derrotado pelos barris!");
+         //   Debug.Log("Boss derrotado pelos barris!");
             Destroy(gameObject);
         }
     }
