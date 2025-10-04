@@ -13,6 +13,9 @@ public class ColocarAlavanca : MonoBehaviour
     public GameObject texto;
     public float tempoExibicao = 2f;
     public GameObject textointeragir;
+    public GameObject item1;
+
+
 
    
 
@@ -43,6 +46,8 @@ public class ColocarAlavanca : MonoBehaviour
             AlavancaVisualCompleta.SetActive(true);
             AlavancaInventario.SetActive(false);
             MostrarTexto();
+            if (item1 != null) item1.SetActive(false);
+            
 
 
         }
