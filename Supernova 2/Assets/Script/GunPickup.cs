@@ -5,7 +5,7 @@ public class GunPickup : MonoBehaviour
     public GameObject gunVisual; 
     public PlayerShooting shootingScript;
     public GameObject ArmaInventario;
-    public GameObject ArmaChão;
+    public GameObject ArmaChao;
     public GameObject botaoCanvas; 
     public GameObject Porta1;
     public GameObject Porta2;
@@ -41,7 +41,7 @@ public class GunPickup : MonoBehaviour
         shootingScript.EquiparArma();
         gunVisual.SetActive(true);
         ArmaInventario.SetActive(true);
-        ArmaChão.SetActive(false);
+        ArmaChao.SetActive(false);
         botaoCanvas.SetActive(false); 
         Porta1.SetActive(false);
         Porta2.SetActive(false);
